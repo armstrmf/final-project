@@ -15,21 +15,26 @@
             Explore
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a href="/recommendations" class="dropdown-item">
+            <!--a href="/recommendations" class="dropdown-item">
               Recommendations
-            </a>
-            <a href="/rounds" class="dropdown-item">
-              Rounds
+            </a -->
+            <a href="/golfers" class="dropdown-item">
+              Golfers
             </a>
             <a href="/courses" class="dropdown-item">
               Courses
             </a>
-            <a href="/golfers" class="dropdown-item">
-              Golfers
+            <a href="/rounds" class="dropdown-item">
+              Recent Rounds
             </a>
           </div>
         </li>
-        <% if @current_user != nil %>
+        <!-- % if @current_user != nil % -->
+        <li class="nav-item">
+          <a href="/new_round_form" class="nav-link">
+            Add New Round
+          </a>
+        </li>
         <li class="nav-item">
           <a href="/edit_golfer_profile" class="nav-link">
             My Profile
@@ -40,7 +45,7 @@
             Sign Out
           </a>
         </li>
-        <% else %>
+        <!--% else % -->
         <li class="nav-item">
           <a href="/golfer_sign_up" class="nav-link">
             Sign Up
@@ -51,7 +56,7 @@
             Sign In
           </a>
         </li>
-        <% end %>
+        <!-- % end % -->
       </ul>
     </div> <!-- .navbar-collapse -->
   </div> <!-- .container -->

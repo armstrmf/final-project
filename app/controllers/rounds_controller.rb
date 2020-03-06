@@ -1,6 +1,6 @@
 class RoundsController < ApplicationController
   def index
-    @rounds = Round.all.order({ :created_at => :desc })
+    @rounds = Round.all.order({ :date_played => :desc })
 
     render({ :template => "rounds/index.html.erb" })
   end
@@ -14,7 +14,7 @@ class RoundsController < ApplicationController
 
   def create
     @round = Round.new
-    @round.golfer_id = params.fetch("query_golfer_id")
+    @round.golfer_id = @current.user.id
     @round.course_id = params.fetch("query_course_id")
     @round.score = params.fetch("query_score")
     @round.date_played = params.fetch("query_date_played")
@@ -53,5 +53,9 @@ class RoundsController < ApplicationController
     @round.destroy
 
     redirect_to("/rounds", { :notice => "Round deleted successfully."} )
+  end
+
+  def submit
+    render({ :template => "rounds/new_round_form.html.erb" })
   end
 end

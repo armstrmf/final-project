@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   # Routes for the Round resource:
 
   # CREATE
+  get("/new_round_form", { :controller => "rounds", :action => "submit" })
   post("/insert_round", { :controller => "rounds", :action => "create" })
           
   # READ

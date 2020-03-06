@@ -1,0 +1,53 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new round
+    </h2>
+
+    <form action="/insert_round" method="post">
+      <!-- div class="form-group">
+        <label for="golfer_id_box">
+          Golfer
+        </label>
+
+        <input type="text" id="golfer_id_box" name="query_golfer_id" class="form-control">
+      </div -->
+
+      <div class="form-group">
+        <label for="course_id_box">
+          Course
+        </label>
+
+        <input type="text" id="course_id_box" name="query_course_id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="date_played_box">
+          Date played
+        </label>
+
+        <input type="date" id="date_played_box" name="query_date_played" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="tees_box">
+          Tees
+        </label>
+
+        <input type="text" id="tees_box" name="query_tees" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create round
+      </button>
+    </form>
+  </div>
+</div>
