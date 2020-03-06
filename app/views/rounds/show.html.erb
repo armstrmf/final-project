@@ -1,0 +1,131 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Round #<%= @round.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/rounds" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_round/<%= @round.id %>" class="btn btn-block btn-outline-secondary">
+          Delete round
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Golfer
+      </dt>
+      <dd>
+        <%= @round.golfer_id %>
+      </dd>
+
+      <dt>
+        Course
+      </dt>
+      <dd>
+        <%= @round.course_id %>
+      </dd>
+
+      <dt>
+        Score
+      </dt>
+      <dd>
+        <%= @round.score %>
+      </dd>
+
+      <dt>
+        Date played
+      </dt>
+      <dd>
+        <%= @round.date_played %>
+      </dd>
+
+      <dt>
+        Tees
+      </dt>
+      <dd>
+        <%= @round.tees %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@round.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@round.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit round
+    </h2>
+
+    <form action="/modify_round/<%= @round.id %>"  method="post" >
+      <div class="form-group">
+        <label for="golfer_id_box">
+          Golfer
+        </label>
+
+        <input type="text" id="golfer_id_box" name="query_golfer_id" class="form-control" value="<%= @round.golfer_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="course_id_box">
+          Course
+        </label>
+
+        <input type="text" id="course_id_box" name="query_course_id" class="form-control" value="<%= @round.course_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score" class="form-control" value="<%= @round.score %>">
+      </div>
+
+      <div class="form-group">
+        <label for="date_played_box">
+          Date played
+        </label>
+
+        <input type="date" id="date_played_box" name="query_date_played" class="form-control" value="<%= @round.date_played %>">
+      </div>
+
+      <div class="form-group">
+        <label for="tees_box">
+          Tees
+        </label>
+
+        <input type="text" id="tees_box" name="query_tees" class="form-control" value="<%= @round.tees %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update round
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Round resource:
+
+  # CREATE
+  post("/insert_round", { :controller => "rounds", :action => "create" })
+          
+  # READ
+  get("/rounds", { :controller => "rounds", :action => "index" })
+  
+  get("/rounds/:path_id", { :controller => "rounds", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_round/:path_id", { :controller => "rounds", :action => "update" })
+  
+  # DELETE
+  get("/delete_round/:path_id", { :controller => "rounds", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Course resource:
 
   # CREATE
