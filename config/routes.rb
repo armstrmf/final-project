@@ -65,6 +65,10 @@ Rails.application.routes.draw do
   get("/golfer_sign_up", { :controller => "golfers", :action => "new_registration_form" })        
   # CREATE RECORD
   post("/insert_golfer", { :controller => "golfers", :action => "create"  })
+
+  # READ
+
+   get("/golfers", { :controller => "golfers", :action => "index" })
       
   # EDIT PROFILE FORM        
   get("/edit_golfer_profile", { :controller => "golfers", :action => "edit_registration_form" })       

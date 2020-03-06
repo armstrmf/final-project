@@ -53,5 +53,10 @@ class GolfersController < ApplicationController
     
     redirect_to("/", { :notice => "Golfer account cancelled" })
   end
+
+  def index
+    
+    render({ :template => "golfers/index.html.erb" })
+  end
   
 end
