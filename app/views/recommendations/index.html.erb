@@ -1,0 +1,102 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all recommendations
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new recommendation
+    </h2>
+
+    <form action="/insert_recommendation" method="post">
+      <div class="form-group">
+        <label for="golfer_id_box">
+          Golfer
+        </label>
+
+        <input type="text" id="golfer_id_box" name="query_golfer_id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="course_id_box">
+          Course
+        </label>
+
+        <input type="text" id="course_id_box" name="query_course_id" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create recommendation
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Golfer
+        </th>
+
+        <th>
+          Course
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @recommendations.each do |recommendation| %>
+      <tr>
+        <td>
+          <%= recommendation.id %>
+        </td>
+
+        <td>
+          <%= recommendation.golfer_id %>
+        </td>
+
+        <td>
+          <%= recommendation.course_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(recommendation.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(recommendation.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/recommendations/<%= recommendation.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

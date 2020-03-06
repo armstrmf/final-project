@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Recommendation resource:
+
+  # CREATE
+  post("/insert_recommendation", { :controller => "recommendations", :action => "create" })
+          
+  # READ
+  get("/recommendations", { :controller => "recommendations", :action => "index" })
+  
+  get("/recommendations/:path_id", { :controller => "recommendations", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_recommendation/:path_id", { :controller => "recommendations", :action => "update" })
+  
+  # DELETE
+  get("/delete_recommendation/:path_id", { :controller => "recommendations", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Round resource:
 
   # CREATE
