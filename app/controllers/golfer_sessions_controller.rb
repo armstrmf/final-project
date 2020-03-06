@@ -1,5 +1,5 @@
 class GolferSessionsController < ApplicationController
-  # skip_before_action(:force_golfer_sign_in, { :only => [:new_session_form, :create_cookie] })
+  skip_before_action(:force_golfer_sign_in, { :only => [:new_session_form, :create_cookie] })
 
   def new_session_form
     render({ :template => "golfer_sessions/sign_in.html.erb" })

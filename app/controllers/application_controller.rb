@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action(:load_current_golfer)
   
-  # before_action(:force_golfer_sign_in)
+  before_action(:force_golfer_sign_in)
   
   def load_current_golfer
     the_id = session.fetch(:golfer_id)
@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   
   def force_golfer_sign_in
     if @current_golfer == nil
-      redirect_to("/golfer_sign_in", { :notice => "You have to sign in first." })
+      redirect_to("/golfer_sign_in", { :alert => "You have to sign in first." })
     end
   end
 

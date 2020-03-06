@@ -1,5 +1,5 @@
 class GolfersController < ApplicationController
-  # skip_before_action(:force_golfer_sign_in, { :only => [:new_registration_form, :create] })
+  skip_before_action(:force_golfer_sign_in, { :only => [:new_registration_form, :create] })
   
   def new_registration_form
     render({ :template => "golfer_sessions/sign_up.html.erb" })
