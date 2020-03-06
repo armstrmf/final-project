@@ -1,0 +1,134 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all courses
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new course
+    </h2>
+
+    <form action="/insert_course" method="post">
+      <div class="form-group">
+        <label for="course_name_box">
+          Course name
+        </label>
+
+        <input type="text" id="course_name_box" name="query_course_name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="address_box">
+          Address
+        </label>
+
+        <input type="text" id="address_box" name="query_address" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="par_box">
+          Par
+        </label>
+
+        <input type="text" id="par_box" name="query_par" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="yardage_box">
+          Yardage
+        </label>
+
+        <input type="text" id="yardage_box" name="query_yardage" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create course
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Course name
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Par
+        </th>
+
+        <th>
+          Yardage
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @courses.each do |course| %>
+      <tr>
+        <td>
+          <%= course.id %>
+        </td>
+
+        <td>
+          <%= course.course_name %>
+        </td>
+
+        <td>
+          <%= course.address %>
+        </td>
+
+        <td>
+          <%= course.par %>
+        </td>
+
+        <td>
+          <%= course.yardage %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(course.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(course.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/courses/<%= course.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
