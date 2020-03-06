@@ -55,7 +55,7 @@ class GolfersController < ApplicationController
   end
 
   def index
-    @golfers = Golfer.all.order({ :username => :desc })
+    @golfers = Golfer.all.order({ :username => :asc })
 
     @top_golfers = Golfer.all.order({ :avg_score => :desc}).limit(5)
 
