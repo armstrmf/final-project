@@ -5,20 +5,17 @@
     </h2>
 
     <form action="/insert_round" method="post">
-      <!-- div class="form-group">
-        <label for="golfer_id_box">
-          Golfer
-        </label>
-
-        <input type="text" id="golfer_id_box" name="query_golfer_id" class="form-control">
-      </div -->
-
       <div class="form-group">
         <label for="course_id_box">
           Course
         </label>
 
-        <input type="text" id="course_id_box" name="query_course_id" class="form-control">
+        <select id="course_id_box" name="query_course_id" class="form-control">
+        <% courses = Course.all.order({ :course_name => :asc }) %>
+        <option value="" disabled selected>--Please choose a course--</option>
+        <% courses.each do |course| %>
+        <option value="<%= course.id %>"><%= course.course_name %></option>
+        <% end %>
       </div>
 
       <div class="form-group">
