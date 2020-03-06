@@ -14,11 +14,12 @@
 
 class Round < ApplicationRecord
 
-  belongs_to :golfer
-  belongs_to :course
+  belongs_to :golfer, :class_name => "Golfer"
+  belongs_to :course, :class_name => "Course"
 
   validates :score, :presence => true
   validates :golfer_id, :presence => true
   validates :date_played, :presence => true
   validates :course_id, :presence => true
+
 end

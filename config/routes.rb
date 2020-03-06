@@ -29,6 +29,7 @@ Rails.application.routes.draw do
           
   # READ
   get("/rounds", { :controller => "rounds", :action => "index" })
+  get("/best_rounds", { :controller => "rounds", :action => "list_best" })
   
   get("/rounds/:path_id", { :controller => "rounds", :action => "show" })
   

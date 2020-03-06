@@ -5,6 +5,12 @@ class RoundsController < ApplicationController
     render({ :template => "rounds/index.html.erb" })
   end
 
+  def list_best
+    @best_rounds = Round.all.order({ :score => :asc}).limit(10)
+
+    render({ :template => "rounds/best.html.erb" })
+  end
+
   def show
     the_id = params.fetch("path_id")
     @round = Round.where({:id => the_id }).at(0)
