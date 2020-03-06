@@ -12,7 +12,7 @@
 
         <select id="course_id_box" name="query_course_id" class="form-control">
         <% courses = Course.all.order({ :course_name => :asc }) %>
-        <option value="" disabled selected>--Please choose a course--</option>
+        <option value="" disabled selected required>--Please choose a course--</option>
         <% courses.each do |course| %>
         <option value="<%= course.id %>"><%= course.course_name %></option>
         <% end %>

@@ -29,12 +29,13 @@ class Golfer < ApplicationRecord
     rounds = Round.all.where({ :golfer_id => self.id})
     num_rounds = Round.all.where({ :golfer_id => self.id}).count
 
-    sum_scores = Round.all.where({ :golfer_id => self.id}).sum(:score)
+    sum_scores = Round.all.where({ :golfer_id => self.id}).sum(:score).to_f
 
     if num_rounds == 0
       avg = "No rounds yet"
     else
       avg = sum_scores / num_rounds
+      avg = avg.round(2)
     end
 
     return avg

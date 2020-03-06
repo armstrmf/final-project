@@ -19,6 +19,9 @@ class RoundsController < ApplicationController
   end
 
   def create
+    if params.fetch("query_course_id") == nil
+      redirect_to("/new_round_form", { :notice => "Must select valid course." })
+    else
     @round = Round.new
     @round.golfer_id = @current_golfer.id
     @round.course_id = params.fetch("query_course_id")
@@ -26,11 +29,12 @@ class RoundsController < ApplicationController
     @round.date_played = params.fetch("query_date_played")
     @round.tees = params.fetch("query_tees")
 
-    if @round.valid?
-      @round.save
-      redirect_to("/rounds", { :notice => "Round created successfully." })
-    else
-      redirect_to("/rounds", { :notice => "Round failed to create successfully." })
+      if @round.valid?
+        @round.save
+        redirect_to("/rounds", { :notice => "Round created successfully." })
+      else
+        redirect_to("/new_round_form", { :alert => "Round failed to create. Please complete all fields and try again." })
+      end
     end
   end
 
