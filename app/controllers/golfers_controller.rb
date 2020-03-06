@@ -55,8 +55,15 @@ class GolfersController < ApplicationController
   end
 
   def index
-    
+    @golfers = Golfer.all.order({ :username => :desc })
     render({ :template => "golfers/index.html.erb" })
+  end
+
+  def show
+    the_id = params.fetch("path_id")
+    @golfer = Golfer.where({:id => the_id }).at(0)
+
+    render({ :template => "golfers/show.html.erb" })
   end
   
 end

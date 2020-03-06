@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   # READ
 
    get("/golfers", { :controller => "golfers", :action => "index" })
+   get("/golfers/:path_id", { :controller => "golfers", :action => "show" })
       
   # EDIT PROFILE FORM        
   get("/edit_golfer_profile", { :controller => "golfers", :action => "edit_registration_form" })       

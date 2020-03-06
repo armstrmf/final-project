@@ -14,7 +14,7 @@ class RoundsController < ApplicationController
 
   def create
     @round = Round.new
-    @round.golfer_id = @current.user.id
+    @round.golfer_id = @current_user.id
     @round.course_id = params.fetch("query_course_id")
     @round.score = params.fetch("query_score")
     @round.date_played = params.fetch("query_date_played")
