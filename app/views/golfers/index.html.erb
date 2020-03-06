@@ -1,6 +1,94 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
+      Top 10 Golfers
+    </h1>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          Username
+        </th>
+
+        <th>
+          City
+        </th>
+
+        <th>
+          State
+        </th>
+
+        <th>
+          Average Score
+        </th>
+
+        <th>
+          Best Score
+        </th>
+
+        <th>
+          Email
+        </th>
+
+        <th>
+          Joined
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @top_golfers.each do |golfer| %>
+      <tr>
+        <td>
+          <%= golfer.username %>
+        </td>
+
+        <td>
+          <%= golfer.city %>
+        </td>
+
+        <td>
+          <%= golfer.state %>
+        </td>
+
+        <td>
+          <%= golfer.avg_score %>
+        </td>
+
+        <td>
+          <%= golfer.best_score %>
+        </td>
+
+        <td>
+          <%= golfer.email %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(golfer.created_at) %> ago
+        </td>
+
+        <td>
+          <a href="/golfers/<%= golfer.id %>">
+            See Profile
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
       All Golfers
     </h1>
   </div>
@@ -58,11 +146,11 @@
         </td>
 
         <td>
-          <%= golfer.id %>
+          <%= golfer.avg_score %>
         </td>
 
         <td>
-          <%= golfer.id %>
+          <%= golfer.best_score %>
         </td>
 
         <td>

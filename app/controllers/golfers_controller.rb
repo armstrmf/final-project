@@ -56,6 +56,9 @@ class GolfersController < ApplicationController
 
   def index
     @golfers = Golfer.all.order({ :username => :desc })
+
+    @top_golfers = Golfer.all.order({ :avg_score => :desc}).limit(5)
+
     render({ :template => "golfers/index.html.erb" })
   end
 
