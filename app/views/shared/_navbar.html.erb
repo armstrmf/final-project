@@ -29,7 +29,7 @@
             </a>
           </div>
         </li>
-        <!-- % if @current_user != nil % -->
+        <% if @current_golfer != nil %>
         <li class="nav-item">
           <a href="/new_round_form" class="nav-link">
             Add New Round
@@ -45,7 +45,7 @@
             Sign Out
           </a>
         </li>
-        <!--% else % -->
+        <% else %>
         <li class="nav-item">
           <a href="/golfer_sign_up" class="nav-link">
             Sign Up
@@ -56,7 +56,7 @@
             Sign In
           </a>
         </li>
-        <!-- % end % -->
+        <% end %>
       </ul>
     </div> <!-- .navbar-collapse -->
   </div> <!-- .container -->
