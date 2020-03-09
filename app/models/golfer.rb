@@ -26,19 +26,23 @@ class Golfer < ApplicationRecord
   validates :username, :uniqueness => true
 
   def avg_score
-    rounds = Round.all.where({ :golfer_id => self.id})
-    num_rounds = Round.all.where({ :golfer_id => self.id}).count
+    num_rounds = self.rounds.count
 
-    sum_scores = Round.all.where({ :golfer_id => self.id}).sum(:score).to_f
-
-    if num_rounds == 0
+    if self.rounds.count == 0
       avg = "No rounds yet"
+      return avg
     else
-      avg = sum_scores / num_rounds
-      avg = avg.round(2)
+      return self.rounds.average(:score).round(2)
     end
 
-    return avg
+    # if num_rounds == 0
+    #   avg = "No rounds yet"
+    # else
+    #   avg = sum_scores / num_rounds
+    #   avg = avg.round(2)
+    # end
+
+    # return avg
   end
 
   def best_score
