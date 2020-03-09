@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      Round #<%= @round.id %> details
+      <%= @round.golfer.username %>'s Round on <%= @round.date_played %>
     </h1>
 
     <div class="row mb-3">
@@ -23,14 +23,14 @@
         Golfer
       </dt>
       <dd>
-        <%= @round.golfer_id %>
+        <%= @round.golfer.username %>
       </dd>
 
       <dt>
         Course
       </dt>
       <dd>
-        <%= @round.course_id %>
+        <%= @round.course.course_name %>
       </dd>
 
       <dt>
@@ -55,18 +55,18 @@
       </dd>
 
       <dt>
-        Created at
+        Posted
       </dt>
       <dd>
         <%= time_ago_in_words(@round.created_at) %> ago
       </dd>
 
-      <dt>
+      <!-- dt>
         Updated at
       </dt>
       <dd>
         <%= time_ago_in_words(@round.updated_at) %> ago
-      </dd>
+      </dd -->
     </dl>
   </div>
 </div>
@@ -81,7 +81,7 @@
     </h2>
 
     <form action="/modify_round/<%= @round.id %>"  method="post" >
-      <div class="form-group">
+      <!-- div class="form-group">
         <label for="golfer_id_box">
           Golfer
         </label>
@@ -95,7 +95,7 @@
         </label>
 
         <input type="text" id="course_id_box" name="query_course_id" class="form-control" value="<%= @round.course_id %>">
-      </div>
+      </div -->
 
       <div class="form-group">
         <label for="score_box">
