@@ -30,7 +30,7 @@
         Course
       </dt>
       <dd>
-        <%= @round.course.course_name %>
+        <%= @round.course.course_name.titlecase %>
       </dd>
 
       <dt>
@@ -41,7 +41,7 @@
       </dd>
 
       <dt>
-        Date played
+        Played on
       </dt>
       <dd>
         <%= @round.date_played %>
@@ -51,7 +51,7 @@
         Tees
       </dt>
       <dd>
-        <%= @round.tees %>
+        <%= @round.tees.titlecase %>
       </dd>
 
       <dt>
@@ -81,21 +81,13 @@
     </h2>
 
     <form action="/modify_round/<%= @round.id %>"  method="post" >
-      <!-- div class="form-group">
-        <label for="golfer_id_box">
-          Golfer
-        </label>
-
-        <input type="text" id="golfer_id_box" name="query_golfer_id" class="form-control" value="<%= @round.golfer_id %>">
+      <div class="form-group">
+        <input type="hidden" id="golfer_id_box" name="query_golfer_id" class="form-control" value="<%= @round.golfer_id %>">
       </div>
 
       <div class="form-group">
-        <label for="course_id_box">
-          Course
-        </label>
-
-        <input type="text" id="course_id_box" name="query_course_id" class="form-control" value="<%= @round.course_id %>">
-      </div -->
+        <input type="hidden" id="course_id_box" name="query_course_id" class="form-control" value="<%= @round.course_id %>">
+      </div>
 
       <div class="form-group">
         <label for="score_box">
@@ -107,7 +99,7 @@
 
       <div class="form-group">
         <label for="date_played_box">
-          Date played
+          Played on
         </label>
 
         <input type="date" id="date_played_box" name="query_date_played" class="form-control" value="<%= @round.date_played %>">
@@ -118,7 +110,7 @@
           Tees
         </label>
 
-        <input type="text" id="tees_box" name="query_tees" class="form-control" value="<%= @round.tees %>">
+        <input type="text" id="tees_box" name="query_tees" class="form-control" value="<%= @round.tees.titlecase %>">
       </div>
 
       <button class="btn btn-block btn-outline-secondary">
