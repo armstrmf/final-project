@@ -112,7 +112,16 @@
           <%= course.recommendations.count %>
         </td>
 
+      <% if course.fans.where({ :id => @current_golfer.id }).at(0) != nil %>
+      <td>
+      <form action="/delete_recommendation/<%= course.id %>">
+      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
+      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= course.id %>">
+      <button>Un-recommend</button>
+      </form>
+      </td>
 
+      <% else %>
       <td>
       <form action="/insert_recommendation" method="post">
       <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
@@ -121,15 +130,7 @@
       <button>Recommend</button>
       </form>
       </td>
-
-      <td>
-      <form action="/delete_recommendation/<%= course.id %>">
-      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
-      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= course.id %>">
-
-      <button>Un-recommend</button>
-      </form>
-      </td>
+      <% end %>
 
         <td>
           <a href="/courses/<%= course.id %>">
