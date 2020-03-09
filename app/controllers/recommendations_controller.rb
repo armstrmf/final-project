@@ -41,11 +41,12 @@ class RecommendationsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    @recommendation = Recommendation.where({ :id => the_id }).at(0)
+    course_id = params.fetch("path_id")
+    golfer_id = params.fetch("query_golfer_id")
+    @recommendation = Recommendation.where({ :golfer_id => golfer_id, :course_id => course_id }).at(0)
 
     @recommendation.destroy
 
-    redirect_to("/recommendations", { :notice => "Recommendation deleted successfully."} )
+    redirect_to("/courses", { :notice => "Recommendation deleted successfully."} )
   end
 end
