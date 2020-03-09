@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      <%= @course.course_name %>
+      <%= @course.course_name.titlecase %>
     </h1>
 
     <div class="row mb-3">
@@ -23,7 +23,7 @@
         Name
       </dt>
       <dd>
-        <%= @course.course_name %>
+        <%= @course.course_name.titlecase %>
       </dd>
 
       <dt>
@@ -79,7 +79,7 @@
           Name
         </label>
 
-        <input type="text" id="course_name_box" name="query_course_name" class="form-control" value="<%= @course.course_name %>">
+        <input type="text" id="course_name_box" name="query_course_name" class="form-control" value="<%= @course.course_name.titlecase %>">
       </div>
 
       <div class="form-group">
@@ -95,7 +95,7 @@
           Par
         </label>
 
-        <input type="text" id="par_box" name="query_par" class="form-control" value="<%= @course.par %>">
+        <input type="number" id="par_box" name="query_par" class="form-control" value="<%= @course.par %>">
       </div>
 
       <div class="form-group">
@@ -103,7 +103,7 @@
           Yardage
         </label>
 
-        <input type="text" id="yardage_box" name="query_yardage" class="form-control" value="<%= @course.yardage %>">
+        <input type="number" id="yardage_box" name="query_yardage" class="form-control" value="<%= @course.yardage %>">
       </div>
 
       <button class="btn btn-block btn-outline-secondary">

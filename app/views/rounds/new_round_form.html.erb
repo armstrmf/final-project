@@ -14,7 +14,7 @@
         <% courses = Course.all.order({ :course_name => :asc }) %>
         <option value="" disabled selected required>--Please choose a course--</option>
         <% courses.each do |course| %>
-        <option value="<%= course.id %>"><%= course.course_name %></option>
+        <option value="<%= course.id %>"><%= course.course_name.titlecase %></option>
         <% end %>
         </select>
       </div>
@@ -24,7 +24,7 @@
           Score
         </label>
 
-        <input type="text" id="score_box" name="query_score" class="form-control">
+        <input type="number" id="score_box" name="query_score" class="form-control">
       </div>
 
       <div class="form-group">
