@@ -19,9 +19,9 @@ class RecommendationsController < ApplicationController
 
     if @recommendation.valid?
       @recommendation.save
-      redirect_to("/recommendations", { :notice => "Recommendation created successfully." })
+      redirect_to("/courses", { :notice => "Recommendation created successfully." })
     else
-      redirect_to("/recommendations", { :notice => "Recommendation failed to create successfully." })
+      redirect_to("/courses", { :alert => "Recommendation failed to create successfully." })
     end
   end
 

@@ -79,10 +79,13 @@
         </th>
 
         <th>
-          Added
         </th>
 
         <th>
+        </th>
+
+        <th>
+          Added
         </th>
       </tr>
 
@@ -105,14 +108,23 @@
           <%= course.yardage %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(course.created_at) %> ago
-        </td>
+      <td>
+      <form action="/insert_recommendation" method="post">
+      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
+      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= course.id %>">
+
+      <button>Recommend</button>
+      </form>
+      </td>
 
         <td>
           <a href="/courses/<%= course.id %>">
             Show details
           </a>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(course.created_at) %> ago
         </td>
       </tr>
       <% end %>
