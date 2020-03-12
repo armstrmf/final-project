@@ -14,7 +14,7 @@ class RecommendationsController < ApplicationController
 
   def create
     @recommendation = Recommendation.new
-    @recommendation.golfer_id = params.fetch("query_golfer_id")
+    @recommendation.golfer_id = @current_golfer.id
     @recommendation.course_id = params.fetch("query_course_id")
 
     if @recommendation.valid?
@@ -42,7 +42,7 @@ class RecommendationsController < ApplicationController
 
   def destroy
     course_id = params.fetch("path_id")
-    golfer_id = params.fetch("query_golfer_id")
+    golfer_id = @current_golfer.id
     @recommendation = Recommendation.where({ :golfer_id => golfer_id, :course_id => course_id }).at(0)
 
     @recommendation.destroy

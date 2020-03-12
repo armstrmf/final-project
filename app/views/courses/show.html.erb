@@ -1,3 +1,4 @@
+<hr>
 <div class="row mb-3">
 
   <div class="col-md-8 offset-md-2">
@@ -62,14 +63,32 @@
         <%= time_ago_in_words(@course.updated_at) %> ago
       </dd>
     </dl>
-  </div>
 
-  
+    <% if @course.fans.where({ :id => @current_golfer.id }).at(0) != nil %>
+      <td>
+      <form action="/delete_recommendation/<%= @course.id %>">
+      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
+      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= @course.id %>">
+      <button class="btn btn-block btn-outline-secondary">Un-recommend</button>
+      </form>
+      </td>
+
+      <% else %>
+      <td>
+      <form action="/insert_recommendation" method="post">
+      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
+      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= @course.id %>">
+
+      <button class="btn btn-block btn-outline-secondary">Recommend</button>
+      </form>
+      </td>
+      <% end %>
+
+  </div>
 </div>
 
-<hr>
-
 <% if @course.rounds.where({ :golfer_id => @current_golfer.id }).at(0) != nil %>
+<hr>
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h2>
