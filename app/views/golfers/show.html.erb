@@ -1,1 +1,122 @@
-<h1>Golfer Profile</h1>
+<div class="row mb-3">
+
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      <%= @golfer.username %>'s Profile
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/golfers" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+    </div>
+
+    <h2>
+      Stats
+    </h2>
+    <br>
+    <dl>
+      <dt>
+        Average Score
+      </dt>
+      <dd>
+        <%= @golfer.avg_score %>
+      </dd>
+
+      <dt>
+        Best Score
+      </dt>
+      <dd>
+        <%= @golfer.best_score %>
+      </dd>
+
+      <dt>
+        Rounds Played
+      </dt>
+      <dd>
+        <%= @golfer.rounds.count %>
+      </dd>
+
+      <dt>
+        Courses Played
+      </dt>
+      <dd>
+        <%= @golfer.rounds.distinct.pluck(:course_id).count %>
+      </dd>
+
+      <dt>
+        Favorite Courses
+      </dt>
+      <dd>
+        <%= @golfer.favorite_courses.pluck(:course_name).to_sentence(last_word_connector: ', ').titlecase %>
+      </dd>
+
+      <dt>
+        Last Played
+      </dt>
+      <dd>
+        <% if @golfer.rounds.count == 0 %>
+          No rounds yet
+        <% else %>
+          <%= time_ago_in_words(@golfer.rounds.where({ :golfer_id => @golfer.id }).order({:date_played => :desc}).at(0).date_played) %> ago
+        <% end %>
+      </dd>
+    </dl>
+
+    <h2>
+      Account Info
+    </h2>
+    <br>
+    <dl>
+      <dt>
+        Username
+      </dt>
+      <dd>
+        <%= @golfer.username %>
+      </dd>
+
+      <dt>
+        City
+      </dt>
+      <dd>
+        <%= @golfer.city %>
+      </dd>
+
+      <dt>
+        State
+      </dt>
+      <dd>
+        <%= @golfer.state %>
+      </dd>
+
+      <dt>
+        Email
+      </dt>
+      <dd>
+        <%= @golfer.email %>
+      </dd>
+
+      <dt>
+        Joined
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@golfer.created_at) %> ago
+      </dd>
+    </dl>
+
+  </div>
+
+  
+</div>
+
+<hr>
+
+
+<!--dt>
+        Last Updated
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@golfer.updated_at) %> ago
+      </dd -->

@@ -47,7 +47,14 @@ class Golfer < ApplicationRecord
 
   def best_score
     pr = Round.all.where({ :golfer_id => self.id}).minimum(:score)
-    return pr
+
+    if self.rounds.count == 0
+      none = "No rounds yet"
+      return none
+    else
+      return pr
+    end
+    
   end
 
 end
