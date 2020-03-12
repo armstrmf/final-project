@@ -50,7 +50,7 @@
         Favorite Courses
       </dt>
       <dd>
-        <%= @golfer.favorite_courses.pluck(:course_name).to_sentence(last_word_connector: ', ').titlecase %>
+        <%= @golfer.favorite_courses.pluck(:course_name).to_sentence(last_word_connector: ', ', two_words_connector: ', ').titlecase %>
       </dd>
 
       <dt>
