@@ -19,7 +19,7 @@ class RecommendationsController < ApplicationController
 
     if @recommendation.valid?
       @recommendation.save
-      redirect_to("/courses", { :notice => "Recommendation created successfully." })
+      redirect_to("/courses/#{@recommendation.course_id}", { :notice => "Recommendation created successfully." })
     else
       redirect_to("/courses", { :alert => "Recommendation failed to create successfully." })
     end
@@ -47,6 +47,6 @@ class RecommendationsController < ApplicationController
 
     @recommendation.destroy
 
-    redirect_to("/courses", { :notice => "Recommendation deleted successfully."} )
+    redirect_to("/courses/#{course_id}", { :notice => "Recommendation deleted successfully."} )
   end
 end

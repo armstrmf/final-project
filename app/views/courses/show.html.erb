@@ -1,4 +1,3 @@
-<hr>
 <div class="row mb-3">
 
   <div class="col-md-8 offset-md-2">
@@ -19,6 +18,9 @@
         </a>
       </div -->
     </div>
+    <h3>
+      Course Details
+    </h3>
 
     <dl>
       <dt>
@@ -63,6 +65,26 @@
         <%= time_ago_in_words(@course.updated_at) %> ago
       </dd>
     </dl>
+
+    <hr>
+    <h3>
+      Social
+    </h3>
+
+    <dl>
+      <dt>
+        Recommendations
+      </dt>
+      <dd>
+        <%= @course.recommendations.count %>
+      </dd>
+
+      <dt>
+        Fans
+      </dt>
+      <dd>
+        <%= @course.fans.pluck(:username).to_sentence %>
+      </dd>
 
     <% if @course.fans.where({ :id => @current_golfer.id }).at(0) != nil %>
       <td>
