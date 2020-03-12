@@ -83,7 +83,11 @@
         Fans
       </dt>
       <dd>
-        <%= @course.fans.pluck(:username).to_sentence %>
+        <% if @course.fans.count == 0 %>
+          No one has recommended this course yet!
+        <% else %>
+          <%= @course.fans.pluck(:username).to_sentence %>
+        <% end %>
       </dd>
 
     <% if @course.fans.where({ :id => @current_golfer.id }).at(0) != nil %>
