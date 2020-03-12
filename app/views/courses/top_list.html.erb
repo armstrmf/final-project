@@ -1,1 +1,97 @@
-hello, world!
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      Top Recommended Courses
+    </h1>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Address
+        </th>
+
+        <th>
+          Par
+        </th>
+
+        <th>
+          Yardage
+        </th>
+
+        <th>
+          Recommendations
+        </th>
+
+        <th>
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @top_courses.each do |course| %>
+      <tr>
+
+        <td>
+          <%= course.course_name.titlecase %>
+        </td>
+
+        <td>
+          <%= course.address %>
+        </td>
+
+        <td>
+          <%= course.par %>
+        </td>
+
+        <td>
+          <%= course.yardage %>
+        </td>
+
+        <td>
+          <%= course.recommendations.count %>
+        </td>
+
+      <% if course.fans.where({ :id => @current_golfer.id }).at(0) != nil %>
+      <td>
+      <form action="/delete_recommendation/<%= course.id %>">
+      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
+      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= course.id %>">
+      <button>Un-recommend</button>
+      </form>
+      </td>
+
+      <% else %>
+      <td>
+      <form action="/insert_recommendation" method="post">
+      <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
+      <input type="hidden" id="course_id_box" name="query_course_id" value="<%= course.id %>">
+
+      <button>Recommend</button>
+      </form>
+      </td>
+      <% end %>
+
+        <td>
+          <a href="/courses/<%= course.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

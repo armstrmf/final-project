@@ -22,4 +22,9 @@ class Course < ApplicationRecord
   validates :course_name, :uniqueness => true
   validates :address, :presence => true
   validates :address, :uniqueness => true
+
+  def top_rank
+    @recommends = self.recommendations.count
+  end
+
 end
