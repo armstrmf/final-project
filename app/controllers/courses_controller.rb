@@ -5,6 +5,12 @@ class CoursesController < ApplicationController
     render({ :template => "courses/index.html.erb" })
   end
 
+  def list_top_courses
+    @top_courses = Course.all.order({ :course_name => :asc })
+
+    render({ :template => "courses/top_list.html.erb" })
+  end
+
   def show
     the_id = params.fetch("path_id")
     @course = Course.where({:id => the_id }).at(0)

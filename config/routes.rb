@@ -49,6 +49,8 @@ Rails.application.routes.draw do
           
   # READ
   get("/courses", { :controller => "courses", :action => "index" })
+
+  get("/top_courses", { :controller => "courses", :action => "list_top_courses" })
   
   get("/courses/:path_id", { :controller => "courses", :action => "show" })
   
