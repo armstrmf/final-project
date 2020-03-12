@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
-      <%= @round.golfer.username %>'s Round on <%= @round.date_played %>
+      <%= @round.golfer.username %>'s Round on <%= @round.date_played.strftime("%b-%d-%Y") %>
     </h1>
 
     <div class="row mb-3">
@@ -47,7 +47,7 @@
         Played on
       </dt>
       <dd>
-        <%= @round.date_played %>
+        <%= @round.date_played.strftime("%b-%d-%Y") %>
       </dd>
 
       <dt>
