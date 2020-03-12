@@ -41,7 +41,7 @@ class GolfersController < ApplicationController
     if @golfer.valid?
       @golfer.save
 
-      redirect_to("/", { :notice => "Golfer account updated successfully."})
+      redirect_to("/golfers/#{@golfer.id}", { :notice => "Golfer account updated successfully."})
     else
       render({ :template => "golfers/edit_profile_with_errors.html.erb" })
     end

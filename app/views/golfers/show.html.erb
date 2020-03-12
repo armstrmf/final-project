@@ -106,6 +106,16 @@
       </dd>
     </dl>
 
+    <% if @golfer.id == @current_golfer.id %>
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/edit_golfer_profile" class="btn btn-block btn-outline-secondary">
+          Edit my account
+        </a>
+      </div>
+    </div>
+    <% end %>
+
   </div>
 
   
