@@ -3,6 +3,7 @@
 # Table name: golfers
 #
 #  id              :integer          not null, primary key
+#  avg_score       :decimal(, )
 #  city            :string
 #  email           :string
 #  password_digest :string
@@ -32,7 +33,7 @@ class Golfer < ApplicationRecord
       avg = "No rounds yet"
       return avg
     else
-      return self.rounds.average(:score).round(2)
+       return self.rounds.average(:score).round(2)
     end
 
     # if num_rounds == 0
