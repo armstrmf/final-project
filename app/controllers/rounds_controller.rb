@@ -31,7 +31,8 @@ class RoundsController < ApplicationController
 
       if @round.valid?
         @round.save
-        
+        # g = Round.all.where({ :golfer_id => @current_golfer.id }).average(:score).round(2)
+        # @current_golfer.avg_score = g
         redirect_to("/rounds", { :notice => "Round created successfully." })
       else
         redirect_to("/new_round_form", { :alert => "Round failed to create. Please complete all fields and try again." })
