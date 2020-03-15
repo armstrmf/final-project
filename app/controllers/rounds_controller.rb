@@ -31,6 +31,7 @@ class RoundsController < ApplicationController
 
       if @round.valid?
         @round.save
+        
         redirect_to("/rounds", { :notice => "Round created successfully." })
       else
         redirect_to("/new_round_form", { :alert => "Round failed to create. Please complete all fields and try again." })
