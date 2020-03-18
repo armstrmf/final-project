@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4" style="background-image: url('https://golfsupport.com/blog/wp-content/uploads/2017/02/golf-grass-green-riot-2.jpg');
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4" style="background-image: url('https://www.nshoremag.com/wp-content/uploads/2020/02/golf-ball.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     color: white">
   <div class="container">
     <i class="fas fa-golf-ball"></i>
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="/" style="color: white">
         BirdieBook
     </a>
 
@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="collapsible-nav-links">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
             Explore
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -41,29 +41,29 @@
           </div>
         </li>
         <% if @current_golfer != nil %>
-        <li class="nav-item">
-          <a href="/new_round_form" class="nav-link">
+        <li class="nav-item" >
+          <a href="/new_round_form" class="nav-link" style="color: white">
             Add New Round
           </a>
         </li>
         <li class="nav-item">
-          <a href="/golfers/<%= @current_golfer.id %>" class="nav-link">
+          <a href="/golfers/<%= @current_golfer.id %>" class="nav-link" style="color: white">
             My Profile
           </a>
         </li>
         <li class="nav-item">
-          <a href="/golfer_sign_out" class="nav-link">
+          <a href="/golfer_sign_out" class="nav-link" style="color: white">
             Sign Out
           </a>
         </li>
         <% else %>
         <li class="nav-item">
-          <a href="/golfer_sign_up" class="nav-link">
+          <a href="/golfer_sign_up" class="nav-link" style="color: white">
             Sign Up
           </a>
         </li>
         <li class="nav-item">
-          <a href="/golfer_sign_in" class="nav-link">
+          <a href="/golfer_sign_in" class="nav-link" style="color: white">
             Sign In
           </a>
         </li>
