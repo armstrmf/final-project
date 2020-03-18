@@ -99,15 +99,23 @@
       </form>
       </td>
 
-      <% else %>
+      <% elsif @course.rounds.where({ :golfer_id => @current_golfer.id}).at(0) != nil %>
       <td>
       <form action="/insert_recommendation" method="post">
       <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
       <input type="hidden" id="course_id_box" name="query_course_id" value="<%= @course.id %>">
 
-      <button class="btn btn-block btn-outline-secondary">Recommend</button>
+      <button class="btn btn-block btn-outline-secondary">Recommend course!</button>
       </form>
       </td>
+
+      <% else %>
+      <td>
+        <a href="/new_round_form" class="btn btn-block btn-outline-secondary">
+          Played here? Add your round!
+        </a>
+      </td>
+
       <% end %>
 
   </div>
