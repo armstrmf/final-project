@@ -7,7 +7,7 @@
 
     <div class="row mb-3">
       <div class="col">
-        <a href="/courses" class="btn btn-block btn-outline-secondary">
+        <a href="/courses" class="btn btn-block btn-success">
           Go back
         </a>
       </div>
@@ -95,7 +95,7 @@
       <form action="/delete_recommendation/<%= @course.id %>">
       <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
       <input type="hidden" id="course_id_box" name="query_course_id" value="<%= @course.id %>">
-      <button class="btn btn-block btn-outline-secondary">Un-recommend</button>
+      <button class="btn btn-block btn-success">Un-recommend</button>
       </form>
       </td>
 
@@ -105,13 +105,13 @@
       <input type="hidden" id="golfer_id_box" name="query_golfer_id" value="<%= @current_golfer.id %>">
       <input type="hidden" id="course_id_box" name="query_course_id" value="<%= @course.id %>">
 
-      <button class="btn btn-block btn-outline-secondary">Recommend course!</button>
+      <button class="btn btn-block btn-success">Recommend course!</button>
       </form>
       </td>
 
       <% else %>
       <td>
-        <a href="/new_round_form" class="btn btn-block btn-outline-secondary">
+        <a href="/new_round_form" class="btn btn-block btn-success">
           Played here? Add your round!
         </a>
       </td>
@@ -162,7 +162,7 @@
         <input type="number" id="yardage_box" name="query_yardage" class="form-control" value="<%= @course.yardage %>">
       </div>
 
-      <button class="btn btn-block btn-outline-secondary">
+      <button class="btn btn-block btn-success">
         Update course
       </button>
     </form>

@@ -6,13 +6,13 @@
 
     <div class="row mb-3">
       <div class="col">
-        <a href="/recommendations" class="btn btn-block btn-outline-secondary">
+        <a href="/recommendations" class="btn btn-block btn-success">
           Go back
         </a>
       </div>
 
       <div class="col">
-        <a href="/delete_recommendation/<%= @recommendation.id %>" class="btn btn-block btn-outline-secondary">
+        <a href="/delete_recommendation/<%= @recommendation.id %>" class="btn btn-block btn-success">
           Delete recommendation
         </a>
       </div>
@@ -76,7 +76,7 @@
         <input type="text" id="course_id_box" name="query_course_id" class="form-control" value="<%= @recommendation.course_id %>">
       </div>
 
-      <button class="btn btn-block btn-outline-secondary">
+      <button class="btn btn-block btn-success">
         Update recommendation
       </button>
     </form>
