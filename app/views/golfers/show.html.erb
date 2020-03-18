@@ -118,10 +118,80 @@
     </div>
     <% end %>
 
-  </div>
+<hr>
 
-  
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h3>
+      Round History
+    </h3>
+  </div>
 </div>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Golfer
+        </th>
+
+        <th>
+          Course
+        </th>
+
+        <th>
+          Score
+        </th>
+
+        <th>
+          Played on
+        </th>
+
+        <th>
+          Tees
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @golfer.rounds.each do |round| %>
+      <tr>
+
+        <td>
+          <%= round.golfer.username %>
+        </td>
+
+        <td>
+          <%= round.course.course_name.titlecase %>
+        </td>
+
+        <td>
+          <%= round.score %>
+        </td>
+
+        <td>
+          <%= round.date_played.strftime("%b-%d-%Y") %>
+        </td>
+
+        <td>
+          <%= round.tees.titlecase %>
+        </td>
+
+        <td>
+          <a href="/rounds/<%= round.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+</div>
+ </div>
 
 <hr>
 

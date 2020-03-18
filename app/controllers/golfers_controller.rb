@@ -68,5 +68,7 @@ class GolfersController < ApplicationController
 
     render({ :template => "golfers/show.html.erb" })
   end
+
+  
   
 end
