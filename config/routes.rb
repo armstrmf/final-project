@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get("/", { :controller => "rounds", :action => "index" })
+  get("/", { :controller => "application", :action => "homepage" })
 
   # Routes for the Recommendation resource:
 
