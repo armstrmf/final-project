@@ -6,6 +6,7 @@
 #  address     :string
 #  course_name :string
 #  par         :integer
+#  reccos      :integer
 #  yardage     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

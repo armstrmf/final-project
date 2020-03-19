@@ -6,7 +6,13 @@ class CoursesController < ApplicationController
   end
 
   def list_top_courses
-    @top_courses = Course.all.order({ :course_name => :asc })
+    @courses = Course.all.order({ :course_name => :asc })
+
+    @courses.each do |course|
+        course.reccos = course.recommendations.count
+        course.save
+    end
+    @top_courses = Course.all.where.not({ :reccos => 0 }).order({ :reccos => :desc }).limit(5)
 
     render({ :template => "courses/top_list.html.erb" })
   end
