@@ -7,7 +7,7 @@
 
   <% if @golfer.errors.any? %>
   <% @golfer.errors.full_messages.each do |message| %>
-    <div class="alert">
+    <div class="alert" style="color: white">
       <%= message %>
     </div>
   <% end %>

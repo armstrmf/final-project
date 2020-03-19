@@ -55,9 +55,17 @@ class GolfersController < ApplicationController
   end
 
   def index
+    
     @golfers = Golfer.all.order({ :username => :asc })
 
-    @top_golfers = Golfer.all.order({ :avg_score => :desc}).limit(5)
+    @golfers.each do |golfer|
+      if golfer.rounds.count != 0
+        golfer.avg_score = golfer.rounds.average(:score).round(2)
+        golfer.save
+      end
+    end
+
+    @top_golfers = Golfer.all.where.not({ :avg_score => nil }).order({:avg_score => :asc}).limit(5)
 
     render({ :template => "golfers/index.html.erb" })
   end
