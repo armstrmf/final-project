@@ -27,7 +27,6 @@ class Golfer < ApplicationRecord
   validates :username, :uniqueness => true
 
   def avg_score
-    num_rounds = self.rounds.count
 
     if self.rounds.count == 0
       avg = "No rounds yet"
